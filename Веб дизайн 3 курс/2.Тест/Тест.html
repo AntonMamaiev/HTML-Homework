@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест</title>
+    <style>
+        p {
+            font-size:24px;
+        }
+        input {
+            font-size:24px;
+        }
+        </style>
+</head>
+<body style="background-color: cornsilk;">
+    <p>Тест!</p>
+    <p>1. 12+93*14 = <input type="number" id="z1"></p>
+    <p>2. Коли був перший карантин в Україні?
+        <p><input type="radio" id="z2_1" class="i-1" name = "z2" value="0">
+        <label for="z2_1">з 15 травня до 18 липня 2018</label></p>
+        <p><input type="radio" id="z2_2" class="i-1" name = "z2" value="0">
+        <label for="z2_2">з 1 лютого до 18 квітня 2019</label></p>
+        <p><input type="radio" id="z2_3" class="i-1" name = "z2" value="1">
+        <label for="z2_3">з 12 березня до 22 червня 2019</label></p>
+        <p><input type="radio" id="z2_4" class="i-1" name = "z2" value="0">
+        <label for="z2_4">з 16 січня до 5 червня 2020</label></p>    
+    </p>
+    <p>3. Хто з цих людей був програмістом? (декілька правильних відповідей)</p>
+        <p><input type="checkbox" class="i-2" id="z3_1" value="0">
+        <label for="z3_1">Стів Джопс</label></p>
+        <p><input type="checkbox" class="i-2" id="z3_2" value="1">
+        <label for="z3_1">Лінус Торвальдс</label></p>
+        <p><input type="checkbox" class="i-2" id="z3_3" value="1">
+        <label for="z3_1">Ілон Маск</label></p>
+        <p><input type="checkbox" class="i-2" id="z3_4" value="0">
+        <label for="z3_1">Марк Віллер</label></p>
+        <p><input type="checkbox" class="i-2" id="z3_5" value="1">
+        <label for="z3_1">Дональд Кнут</label></p>
+    <button onClick="proverit();">Перевірити</button>
+    <div id="rezultat"></div>
+    <script>
+        function proverit(){
+        otv1 = 1314;
+        personOTV1 = document.getElementById('z1').value;
+        OCINKA = 0;
+        data = 0;
+        if(personOTV1 == otv1){
+            OCINKA+=1;
+        }
+        let radio = document.querySelectorAll('.i-1');
+        for (let i = 0; i < radio.length; i++){
+            if(radio[i].checked) {
+                data =  radio[i].value;
+                break;
+            }
+        }
+        if (data == 1){
+            OCINKA+=1;
+        }
+        if (document.getElementById('z3_2').checked && document.getElementById('z3_3').checked && document.getElementById('z3_5').checked){
+            OCINKA+=1;
+        }
+        document.getElementById('rezultat').innerHTML = "Правильних відповідей "+OCINKA;
+    }
+    </script>
+</body>
+</html>
